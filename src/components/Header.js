@@ -17,7 +17,7 @@ const Header = () => {
                                 
                                 <div className="menu__toggle">
                                     <i className="icon-menu"></i>
-                                    <span> Shop by Department</span>
+                                    <span>Categorias</span>
                                 </div>
 
                                 <div className="menu__content">
@@ -224,8 +224,8 @@ const Header = () => {
                                         <i className="icon-user"></i>
                                     </div>
                                     <div className="ps-block__right">
-                                        <a href="my-account.html">Login</a>
-                                        <a href="my-account.html">Register</a>
+                                        <a href="my-account.html">Ingresar</a>
+                                        <a href="my-account.html">Registrarse</a>
                                     </div>
                                 </div>
 
@@ -564,8 +564,8 @@ const Header = () => {
                                     <i className="icon-user"></i>
                                 </div>
                                 <div className="ps-block__right">
-                                    <a href="my-account.html">Login</a>
-                                    <a href="my-account.html">Register</a>
+                                    <a href="my-account.html">Ingresar</a>
+                                    <a href="my-account.html">Registrarse</a>
                                 </div>
 
                             </div>

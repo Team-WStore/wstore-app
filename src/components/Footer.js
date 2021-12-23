@@ -8,14 +8,14 @@ const Footer = () => {
 
                     <aside className="widget widget_footer widget_contact-us">
 
-                        <h4 className="widget-title">Contact us</h4>
+                        <h4 className="widget-title">Contactanos</h4>
 
                         <div className="widget_content">
 
-                            <p>Call us 24/7</p>
-                            <h3>1800 97 97 69</h3>
-                            <p>502 New Design Str, Melbourne, Australia <br/>
-                                <a href="mailto:contact@marketplace.co">contact@marketplace.co</a>
+                            <p>Llámanos 24/7</p>
+                            <h3>+57 320 123 4567</h3>
+                            <p>Cll 1 #4-30, Bogotá, Colombia<br/>
+                                <a href="mailto:contact@marketplace.co">contact@wstore.com</a>
                             </p>
 
                             <ul className="ps-list--social">
@@ -32,19 +32,13 @@ const Footer = () => {
 
                     <aside className="widget widget_footer">
 
-                        <h4 className="widget-title">Quick links</h4>
+                        <h4 className="widget-title">Legal</h4>
 
                         <ul className="ps-list--link">
 
-                            <li><a href="#">Policy</a></li>
+                            <li><a href="#">Politicas de privacidad</a></li>
 
-                            <li><a href="#">Term &amp; Condition</a></li>
-
-                            <li><a href="#">Shipping</a></li>
-
-                            <li><a href="#">Return</a></li>
-
-                            <li><a href="faqs.html">FAQs</a></li>
+                            <li><a href="#">Terminos y condiciones</a></li>
 
                         </ul>
 
@@ -53,36 +47,13 @@ const Footer = () => {
 
                     <aside className="widget widget_footer">
 
-                        <h4 className="widget-title">Company</h4>
+                        <h4 className="widget-title">Empresa</h4>
 
                         <ul className="ps-list--link">
 
-                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="about-us.html">Acerca de</a></li>
 
-                            <li><a href="#">Affilate</a></li>
-
-                            <li><a href="#">Career</a></li>
-
-                            <li><a href="contact-us.html">Contact</a></li>
-
-                        </ul>
-
-                    </aside>
-
-
-                    <aside className="widget widget_footer">
-
-                        <h4 className="widget-title">Bussiness</h4>
-
-                        <ul className="ps-list--link">
-
-                            <li><a href="#">Our Press</a></li>
-
-                            <li><a href="checkout.html">Checkout</a></li>
-
-                            <li><a href="my-account.html">My account</a></li>
-
-                            <li><a href="shop-default.html">Shop</a></li>
+                            <li><a href="contact-us.html">Contacto</a></li>
 
                         </ul>
 
