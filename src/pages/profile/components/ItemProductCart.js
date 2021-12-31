@@ -70,7 +70,7 @@ const ItemProductCart = ({product}) => {
 
             </td>
 
-            <td>$ {product.price * counter + product.shipping}</td>
+            <td>$ {(product.price * counter + product.shipping).toFixed(2)}</td>
 
             <td>
                 <a href="#/" onClick={deleteProduct}>
