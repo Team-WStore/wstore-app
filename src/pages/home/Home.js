@@ -11,11 +11,11 @@ const Home = () => {
         <div className="homepage-6">
             <Header />
             <HomeBanner />
-            <TopList />
+            <br/>
             <Feautures />
-            <TopList />
-            <BlockProducts />
-            <TopList />
+            <TopList titulo="Top productos" />
+            <TopList titulo="Top categorias" />
+            <TopList titulo="Otros productos" />
             <Newsletter/>
             <Footer />
         </div>

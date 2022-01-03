@@ -25,43 +25,6 @@ const Header = () => {
                                         <li>
                                             <a href="#"><i className="icon-star"></i> Hot Promotions</a>
                                         </li>
-                                        <li className="menu-item-has-children has-mega-menu">
-                                            <a href="#"><i className="icon-laundry"></i> Consumer Electronic</a>
-                                            <div className="mega-menu">
-                                                <div className="mega-menu__column">
-                                                    <h4>Electronic<span className="sub-toggle"></span></h4>
-                                                    <ul className="mega-menu__list">
-                                                        <li><a href="#">Home Audio &amp; Theathers</a>
-                                                        </li>
-                                                        <li><a href="#">TV &amp; Videos</a>
-                                                        </li>
-                                                        <li><a href="#">Camera, Photos &amp; Videos</a>
-                                                        </li>
-                                                        <li><a href="#">Cellphones &amp; Accessories</a>
-                                                        </li>
-                                                        <li><a href="#">Headphones</a>
-                                                        </li>
-                                                        <li><a href="#">Videosgames</a>
-                                                        </li>
-                                                        <li><a href="#">Wireless Speakers</a>
-                                                        </li>
-                                                        <li><a href="#">Office Electronic</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div className="mega-menu__column">
-                                                    <h4>Accessories &amp; Parts<span className="sub-toggle"></span></h4>
-                                                    <ul className="mega-menu__list">
-                                                        <li><a href="#">Digital Cables</a>
-                                                        </li>
-                                                        <li><a href="#">Audio &amp; Video Cables</a>
-                                                        </li>
-                                                        <li><a href="#">Batteries</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </li>
                                         <li>
                                             <a href="#"><i className="icon-shirt"></i> Clothing &amp; Apparel</a>
                                         </li>
@@ -73,34 +36,6 @@ const Header = () => {
                                         </li>
                                         <li>
                                             <a href="#"><i className="icon-diamond2"></i> Yewelry &amp; Watches</a>
-                                        </li>
-                                        <li className="menu-item-has-children has-mega-menu">
-                                            <a href="#"><i className="icon-desktop"></i> Computer &amp; Technology</a>
-                                            <div className="mega-menu">
-                                                <div className="mega-menu__column">
-                                                    <h4>Computer &amp; Technologies<span className="sub-toggle"></span></h4>
-                                                    <ul className="mega-menu__list">
-                                                        <li><a href="#">Computer &amp; Tablets</a>
-                                                        </li>
-                                                        <li><a href="#">Laptop</a>
-                                                        </li>
-                                                        <li><a href="#">Monitors</a>
-                                                        </li>
-                                                        <li><a href="#">Networking</a>
-                                                        </li>
-                                                        <li><a href="#">Drive &amp; Storages</a>
-                                                        </li>
-                                                        <li><a href="#">Computer Components</a>
-                                                        </li>
-                                                        <li><a href="#">Security &amp; Protection</a>
-                                                        </li>
-                                                        <li><a href="#">Gaming Laptop</a>
-                                                        </li>
-                                                        <li><a href="#">Accessories</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
                                         </li>
                                         <li>
                                             <a href="#"><i className="icon-baby-bottle"></i> Babies &amp; Moms</a>
@@ -133,17 +68,8 @@ const Header = () => {
 
                         <div className="header__content-center">
                             <form className="ps-form--quick-search" action="index.html" method="get">
-                                <div className="form-group--icon">
-                                    <i className="icon-chevron-down"></i>
-                                    <select className="form-control">
-                                        <option value="1">All</option>
-                                        <option value="1">Smartphone</option>
-                                        <option value="1">Sounds</option>
-                                        <option value="1">Technology toys</option>
-                                    </select>
-                                </div>
-                                <input className="form-control" type="text" placeholder="I'm shopping for..."/>
-                                <button>Search</button>
+                                <input className="form-control" type="text" placeholder="Estoy comprando ..."/>
+                                <button>Buscar</button>
                             </form>
                         </div>
 
@@ -209,7 +135,7 @@ const Header = () => {
 
                                             <h3>Sub Total:<strong>$59.99</strong></h3>
                                             <figure>
-                                                <a className="ps-btn" href="shopping-cart.html">View Cart</a>
+                                                <a className="ps-btn" href="shopping-cart.html">Ver Carrito</a>
                                                 <a className="ps-btn" href="checkout.html">Checkout</a>
                                             </figure>
 
@@ -241,44 +167,6 @@ const Header = () => {
 
             <header className="header header--mobile" data-sticky="true">
 
-                <div className="header__top">
-
-                    <div className="header__left">
-
-                        <ul className="d-flex justify-content-center">
-                            <li><a href="#" target="_blank"><i className="fab fa-facebook-f mr-4"></i></a></li>
-                            <li><a href="#" target="_blank"><i className="fab fa-instagram mr-4"></i></a></li>					
-                            <li><a href="#" target="_blank"><i className="fab fa-twitter mr-4"></i></a></li>
-                            <li><a href="#" target="_blank"><i className="fab fa-youtube mr-4"></i></a></li>
-                        </ul>
-                    </div>
-
-                    <div className="header__right">
-
-                        <ul className="navigation__extra">
-
-                        <li><i className="icon-telephone"></i> Hotline:<strong> 1-800-234-5678</strong></li>    
-
-                            <li>
-
-                                <div className="ps-dropdown language"><a href="#"><img src="img/template/en.png" alt=""/>English</a>
-
-                                    <ul className="ps-dropdown-menu">
-
-                                        <li><a href="#"><img src="img/template/es.png" alt=""/> Español</a></li>
-
-                                    </ul>
-
-                                </div>
-
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
                 <div className="navigation--mobile">
 
                     <div className="navigation__left">
@@ -292,7 +180,7 @@ const Header = () => {
                             <div className="ps-filter--sidebar">
 
                                 <div className="ps-filter__header">
-                                    <h3>Categories</h3><a className="ps-btn--close ps-btn--no-boder" href="#"></a>
+                                    <h3>Categorias</h3><a className="ps-btn--close ps-btn--no-boder" href="#"></a>
                                 </div>
 
                                 <div className="ps-filter__content">
@@ -592,7 +480,7 @@ const Header = () => {
 
 
             <div className="navigation--list">
-                <div className="navigation__content"><a className="navigation__item ps-toggle--sidebar" href="#menu-mobile"><i className="icon-menu"></i><span> Menu</span></a><a className="navigation__item ps-toggle--sidebar" href="#navigation-mobile"><i className="icon-list4"></i><span> Categories</span></a><a className="navigation__item ps-toggle--sidebar" href="#search-sidebar"><i className="icon-magnifier"></i><span> Search</span></a><a className="navigation__item ps-toggle--sidebar" href="#cart-mobile"><i className="icon-bag2"></i><span> Cart</span></a></div>
+                <div className="navigation__content"><a className="navigation__item ps-toggle--sidebar" href="#menu-mobile"><i className="icon-menu"></i><span> Menu</span></a><a className="navigation__item ps-toggle--sidebar" href="#navigation-mobile"><i className="icon-list4"></i><span> Categorias</span></a><a className="navigation__item ps-toggle--sidebar" href="#search-sidebar"><i className="icon-magnifier"></i><span> Buscar</span></a><a className="navigation__item ps-toggle--sidebar" href="#cart-mobile"><i className="icon-bag2"></i><span> Carrito</span></a></div>
             </div>
 
 
@@ -782,47 +670,11 @@ const Header = () => {
 
             <div className="ps-panel--sidebar" id="navigation-mobile">
                 <div className="ps-panel__header">
-                    <h3>Categories</h3>
+                    <h3>Categorias</h3>
                 </div>
                 <div className="ps-panel__content">
                     <ul className="menu--mobile">
                         <li className="current-menu-item "><a href="#">Hot Promotions</a>
-                        </li>
-                        <li className="current-menu-item menu-item-has-children has-mega-menu"><a href="#">Consumer Electronic</a><span className="sub-toggle"></span>
-                            <div className="mega-menu">
-                                <div className="mega-menu__column">
-                                    <h4>Electronic<span className="sub-toggle"></span></h4>
-                                    <ul className="mega-menu__list">
-                                        <li className="current-menu-item "><a href="#">Home Audio &amp; Theathers</a>
-                                        </li>
-                                        <li className="current-menu-item "><a href="#">TV &amp; Videos</a>
-                                        </li>
-                                        <li className="current-menu-item "><a href="#">Camera, Photos &amp; Videos</a>
-                                        </li>
-                                        <li className="current-menu-item "><a href="#">Cellphones &amp; Accessories</a>
-                                        </li>
-                                        <li className="current-menu-item "><a href="#">Headphones</a>
-                                        </li>
-                                        <li className="current-menu-item "><a href="#">Videosgames</a>
-                                        </li>
-                                        <li className="current-menu-item "><a href="#">Wireless Speakers</a>
-                                        </li>
-                                        <li className="current-menu-item "><a href="#">Office Electronic</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div className="mega-menu__column">
-                                    <h4>Accessories &amp; Parts<span className="sub-toggle"></span></h4>
-                                    <ul className="mega-menu__list">
-                                        <li className="current-menu-item "><a href="#">Digital Cables</a>
-                                        </li>
-                                        <li className="current-menu-item "><a href="#">Audio &amp; Video Cables</a>
-                                        </li>
-                                        <li className="current-menu-item "><a href="#">Batteries</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
                         </li>
                         <li className="current-menu-item "><a href="#">Clothing &amp; Apparel</a>
                         </li>
@@ -831,33 +683,6 @@ const Header = () => {
                         <li className="current-menu-item "><a href="#">Health &amp; Beauty</a>
                         </li>
                         <li className="current-menu-item "><a href="#">Yewelry &amp; Watches</a>
-                        </li>
-                        <li className="current-menu-item menu-item-has-children has-mega-menu"><a href="#">Computer &amp; Technology</a><span className="sub-toggle"></span>
-                            <div className="mega-menu">
-                                <div className="mega-menu__column">
-                                    <h4>Computer &amp; Technologies<span className="sub-toggle"></span></h4>
-                                    <ul className="mega-menu__list">
-                                        <li className="current-menu-item "><a href="#">Computer &amp; Tablets</a>
-                                        </li>
-                                        <li className="current-menu-item "><a href="#">Laptop</a>
-                                        </li>
-                                        <li className="current-menu-item "><a href="#">Monitors</a>
-                                        </li>
-                                        <li className="current-menu-item "><a href="#">Networking</a>
-                                        </li>
-                                        <li className="current-menu-item "><a href="#">Drive &amp; Storages</a>
-                                        </li>
-                                        <li className="current-menu-item "><a href="#">Computer Components</a>
-                                        </li>
-                                        <li className="current-menu-item "><a href="#">Security &amp; Protection</a>
-                                        </li>
-                                        <li className="current-menu-item "><a href="#">Gaming Laptop</a>
-                                        </li>
-                                        <li className="current-menu-item "><a href="#">Accessories</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
                         </li>
                         <li className="current-menu-item "><a href="#">Babies &amp; Moms</a>
                         </li>
@@ -893,7 +718,7 @@ const Header = () => {
 
             <div className="ps-panel--sidebar" id="cart-mobile">
                 <div className="ps-panel__header">
-                    <h3>Shopping Cart</h3>
+                    <h3>Carrito Compras</h3>
                 </div>
                 <div className="navigation__content">
                     <div className="ps-cart--mobile">

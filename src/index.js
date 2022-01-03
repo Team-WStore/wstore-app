@@ -7,4 +7,4 @@ import AboutUs from './pages/about-us/AboutUs';
 import Profile from './pages/profile/Profile';
 import Cart from './pages/profile/Cart';
 
-ReactDOM.render(<Cart/>, document.getElementById('root'));
+ReactDOM.render(<Home/>, document.getElementById('root'));
