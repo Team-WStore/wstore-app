@@ -15,14 +15,14 @@ const Footer = () => {
                             <p>Llámanos 24/7</p>
                             <h3>+57 320 123 4567</h3>
                             <p>Cll 1 #4-30, Bogotá, Colombia<br/>
-                                <a href="mailto:contact@marketplace.co">contact@wstore.com</a>
+                                <a href="#/">contact@wstore.com</a>
                             </p>
 
                             <ul className="ps-list--social">
-                                <li><a className="facebook" href="#"><i className="fab fa-facebook-f"></i></a></li>
-                                <li><a className="twitter" href="#"><i className="fab fa-twitter"></i></a></li>
-                                <li><a className="google-plus" href="#"><i className="fab fa-youtube"></i></a></li>
-                                <li><a className="instagram" href="#"><i className="fab fa-instagram"></i></a></li>
+                                <li><a className="facebook" href="#/"><i className="fab fa-facebook-f"></i></a></li>
+                                <li><a className="twitter" href="#/"><i className="fab fa-twitter"></i></a></li>
+                                <li><a className="google-plus" href="#/"><i className="fab fa-youtube"></i></a></li>
+                                <li><a className="instagram" href="#/"><i className="fab fa-instagram"></i></a></li>
                             </ul>
 
                         </div>
@@ -36,9 +36,9 @@ const Footer = () => {
 
                         <ul className="ps-list--link">
 
-                            <li><a href="#">Politicas de privacidad</a></li>
+                            <li><a href="#/">Politicas de privacidad</a></li>
 
-                            <li><a href="#">Terminos y condiciones</a></li>
+                            <li><a href="#/">Terminos y condiciones</a></li>
 
                         </ul>
 
@@ -51,9 +51,9 @@ const Footer = () => {
 
                         <ul className="ps-list--link">
 
-                            <li><a href="about-us.html">Acerca de</a></li>
+                            <li><a href="#/">Acerca de</a></li>
 
-                            <li><a href="contact-us.html">Contacto</a></li>
+                            <li><a href="#/">Contacto</a></li>
 
                         </ul>
 

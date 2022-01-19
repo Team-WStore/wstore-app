@@ -11,7 +11,7 @@ const BannerItem = (props) => {
                 <div className="ps-banner__content">
                     <h4>{titulo}</h4>
                     <h3>{descripcion}</h3>
-                    <a className="ps-btn" href="#">Comprar Ahora</a>
+                    <a className="ps-btn" href="#/">Comprar Ahora</a>
                 </div>
             </div>
         </>

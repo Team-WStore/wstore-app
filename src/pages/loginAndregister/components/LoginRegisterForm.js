@@ -1,42 +1,96 @@
+import { useContext } from "react";
+import { AuthContext } from "../../../context/auth/AuthContext";
+import { useForm } from "../../../hooks/useForm";
+
 const LoginAndRegisterForm = () => {
+    const { login, signupUser } = useContext(AuthContext);
+
+    const [{ email, password }, handleInputChange] = useForm({
+        email: '',
+        password: '',
+    });
+
+    const [{
+        name,
+        lastname,
+        username,
+        email2,
+        password2
+    }, handleInputChange2] = useForm({
+        name: '',
+        lastname: '',
+        username: '',
+        email2: '',
+        password2: '',
+    });
+
+    const handleSubmitLogin = (e) => {
+        e.preventDefault();
+
+        if (email !== '' && password !== '') login({ email, password });
+        else signupUser({
+            name,
+            lastname,
+            username,
+            email2,
+            password2
+        });
+    }
     return (
-        <div class="ps-my-account">
+        <div className="ps-my-account">
 
-            <div class="container">
+            <div className="container">
 
-                <form class="ps-form--account ps-tab-root" action="link.html" method="get">
+                <form className="ps-form--account ps-tab-root" onSubmit={handleSubmitLogin}>
 
-                    <ul class="ps-tab-list">
+                    <ul className="ps-tab-list">
 
-                        <li class="active"><a href="#sign-in">Ingresar</a></li>
+                        <li className="active">
+                            <a href="#sign-in">Ingresar</a>
+                        </li>
 
-                        <li class=""><a href="#register">Registrarse</a></li>
+                        <li className="">
+                            <a href="#register">Registrarse</a>
+                        </li>
 
                     </ul>
 
-                    <div class="ps-tabs">
+                    <div className="ps-tabs">
 
-                        <div class="ps-tab active" id="sign-in">
+                        <div className="ps-tab active" id="sign-in">
 
-                            <div class="ps-form__content">
+                            <div className="ps-form__content">
 
                                 <h5>Ingrese en su cuenta</h5>
 
-                                <div class="form-group">
+                                <div className="form-group">
+                                    <input
+                                        className="form-control"
+                                        type="text"
+                                        placeholder="Email"
+                                        name="email"
+                                        value={email}
+                                        onChange={handleInputChange}
+                                        autoComplete="off"
+                                    />
+                                </div>
 
-                                    <input class="form-control" type="text" placeholder="Email"/>
+                                <div className="form-group form-forgot">
+
+                                    <input
+                                        className="form-control"
+                                        type="password"
+                                        placeholder="Contraseña"
+                                        name="password"
+                                        value={password}
+                                        onChange={handleInputChange}
+                                    />
 
                                 </div>
 
-                                <div class="form-group form-forgot">
+                                <div className="form-group submtit">
 
-                                    <input class="form-control" type="text" placeholder="Contraseña"/>
-
-                                </div>
-
-                                <div class="form-group submtit">
-
-                                    <button class="ps-btn ps-btn--fullwidth">Ingresar</button>
+                                    <button className="ps-btn ps-btn--fullwidth">Ingresar</button>
 
                                 </div>
 
@@ -44,45 +98,78 @@ const LoginAndRegisterForm = () => {
 
                         </div>
 
-                        <div class="ps-tab" id="register">
+                        <div className="ps-tab" id="register">
 
-                            <div class="ps-form__content">
+                            <div className="ps-form__content">
 
                                 <h5>Registrar una cuenta</h5>
 
-                                <div class="form-group">
+                                <div className="form-group">
+                                    <input
+                                        className="form-control"
+                                        type="text"
+                                        placeholder="Nombre"
+                                        name="name"
+                                        value={name}
+                                        onChange={handleInputChange2}
+                                    />
+                                </div>
 
-                                    <input class="form-control" type="text" placeholder="Nombre"/>
+                                <div className="form-group">
+
+                                    <input
+                                        className="form-control"
+                                        type="text"
+                                        placeholder="Apellido"
+                                        name="lastname"
+                                        value={lastname}
+                                        onChange={handleInputChange2}
+                                    />
 
                                 </div>
 
-                                <div class="form-group">
+                                <div className="form-group">
 
-                                    <input class="form-control" type="text" placeholder="Apellido"/>
-
-                                </div>
-
-                                <div class="form-group">
-
-                                    <input class="form-control" type="text" placeholder="Nombre de Usuario"/>
-
-                                </div>
-
-                                <div class="form-group">
-
-                                    <input class="form-control" type="email" placeholder="Email"/>
+                                    <input
+                                        className="form-control"
+                                        type="text"
+                                        placeholder="Nombre de Usuario"
+                                        name="username"
+                                        value={username}
+                                        onChange={handleInputChange2}
+                                    />
 
                                 </div>
 
-                                <div class="form-group">
+                                <div className="form-group">
 
-                                    <input class="form-control" type="text" placeholder="Contraseña"/>
+                                    <input
+                                        className="form-control"
+                                        type="email"
+                                        placeholder="Email"
+                                        name="email2"
+                                        value={email2}
+                                        onChange={handleInputChange2}
+                                    />
 
                                 </div>
 
-                                <div class="form-group submtit">
+                                <div className="form-group">
 
-                                    <button class="ps-btn ps-btn--fullwidth">Registrarse</button>
+                                    <input
+                                        className="form-control"
+                                        type="text"
+                                        placeholder="Contraseña"
+                                        name="password2"
+                                        value={password2}
+                                        onChange={handleInputChange2}
+                                    />
+
+                                </div>
+
+                                <div className="form-group submtit">
+
+                                    <button className="ps-btn ps-btn--fullwidth">Registrarse</button>
 
                                 </div>
 

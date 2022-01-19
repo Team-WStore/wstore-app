@@ -661,7 +661,7 @@
 
 /*1. RESET AND TYPHOGRAPHY */
 html {
-  font-family: sans-serif;
+  font-family: 'Nunito', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -779,7 +779,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: 1em;
 }
 
@@ -889,7 +889,7 @@ textarea {
 }
 
 * {
-  font-family: "Work Sans", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 400;
 }
 
@@ -1377,7 +1377,7 @@ body {
   position: relative;
   display: block;
   padding-left: 15px;
-  font-family: "Work Sans", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 14px;
   letter-spacing: 0.5px;
   color: #626262;
@@ -2102,7 +2102,7 @@ textarea.form-control {
   margin-bottom: 0;
   position: relative;
   padding-left: 30px;
-  font-family: "Work Sans", sans-serif;
+  font-family: 'Nunito', sans-serif;
   color: rgba(0, 0, 0, 0.5);
   font-weight: 400;
   cursor: pointer;
@@ -2331,7 +2331,7 @@ textarea.form-control {
   position: relative;
   margin-bottom: 0;
   padding-left: 30px;
-  font-family: "Work Sans", sans-serif;
+  font-family: 'Nunito', sans-serif;
   color: #737373;
   font-weight: 400;
   cursor: pointer;
@@ -6937,7 +6937,7 @@ textarea.form-control {
 }
 
 .widget_sidebar .widget-title {
-  font-family: "Work Sans", sans-serif;
+  font-family: 'Nunito', sans-serif;
   display: block;
   margin-bottom: 2.5rem;
   font-size: 1.6rem;
@@ -10779,7 +10779,7 @@ textarea.form-control {
 }
 
 .ps-table thead > tr > th {
-  font-family: "Work Sans", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 18px;
   font-weight: 700;
   color: #515356;

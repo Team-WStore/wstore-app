@@ -81,7 +81,7 @@ const ItemMenuShopping = () => {
                                 <li className="success">
                                     <h5>18 March, 2020</h5>
                                     <p className="text-success">Sent <i className="fas fa-check"></i></p>
-                                    <p>Comment: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum quaerat recusandae <br /><a href="#" target="_blank">ID TRACK A24S36343DWS4</a></p>
+                                    <p>Comment: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum quaerat recusandae <br /><a href="#/" target="_blank">ID TRACK A24S36343DWS4</a></p>
                                 </li>
                                 <li className="success">
                                     <h5>23 March, 2020</h5>
@@ -90,7 +90,7 @@ const ItemMenuShopping = () => {
                                 </li>
                             </ul>
 
-                            <a className="btn btn-warning btn-lg" href="#">Repurchase</a>
+                            <a className="btn btn-warning btn-lg" href="#/">Repurchase</a>
 
                         </td>
 
@@ -114,7 +114,7 @@ const ItemMenuShopping = () => {
 
                                 </div>
 
-                                <a className="btn btn-warning btn-lg" href="#">Add comment</a>
+                                <a className="btn btn-warning btn-lg" href="#/">Add comment</a>
 
                             </div>
 
@@ -172,7 +172,7 @@ const ItemMenuShopping = () => {
                                 </li>
                             </ul>
 
-                            <a className="btn btn-danger btn-lg" href="#">Open Dispute</a>
+                            <a className="btn btn-danger btn-lg" href="#/">Open Dispute</a>
 
                         </td>
 

@@ -41,7 +41,7 @@ const ItemProductCart = ({product}) => {
                     <div className="ps-product__thumbnail">
 
                         <a href="#/">
-                            <img src="img/products/clothing/2.jpg" alt="Producto" />
+                            <img src="../img/products/clothing/2.jpg" alt="Producto" />
                         </a>
 
                     </div>

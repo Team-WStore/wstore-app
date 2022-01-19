@@ -4,11 +4,7 @@ import CheckoutForm from './components/CheckoutForm';
 
 const Checkout = () => {
     return (
-        <>
-            <Header />
-            <CheckoutForm />
-            <Footer />
-        </>
+        <CheckoutForm />
     );
 }
 

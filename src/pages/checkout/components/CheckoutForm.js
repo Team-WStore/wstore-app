@@ -1,104 +1,105 @@
 const CheckoutForm = () => {
+    
     return (
-        <div class="ps-checkout ps-section--shopping">
+        <div className="ps-checkout ps-section--shopping">
 
-            <div class="container">
+            <div className="container">
 
-                <div class="ps-section__header">
+                <div className="ps-section__header">
 
                     <h1>Checkout</h1>
 
                 </div>
 
-                <div class="ps-section__content">
+                <div className="ps-section__content">
 
-                    <form class="ps-form--checkout" action="do_action" method="post">
+                    <form className="ps-form--checkout" action="do_action" method="post">
 
-                        <div class="row">
+                        <div className="row">
 
-                            <div class="col-xl-7 col-lg-8 col-sm-12">
+                            <div className="col-xl-7 col-lg-8 col-sm-12">
 
-                                <div class="ps-form__billing-info">
+                                <div className="ps-form__billing-info">
 
-                                    <h3 class="ps-form__heading">Detalles de Facturación</h3>
+                                    <h3 className="ps-form__heading">Detalles de Facturación</h3>
 
-                                    <div class="form-group">
+                                    <div className="form-group">
 
                                         <label>First Name<sup>*</sup></label>
 
-                                        <div class="form-group__content">
+                                        <div className="form-group__content">
 
-                                            <input class="form-control" type="text"/>
+                                            <input className="form-control" type="text"/>
 
                                         </div>
 
                                     </div>
 
-                                    <div class="form-group">
+                                    <div className="form-group">
 
                                         <label>Last Name<sup>*</sup></label>
 
-                                        <div class="form-group__content">
+                                        <div className="form-group__content">
 
-                                            <input class="form-control" type="text"/>
+                                            <input className="form-control" type="text"/>
 
                                         </div>
 
                                     </div>
 
-                                    <div class="form-group">
+                                    <div className="form-group">
 
                                         <label>Email Address<sup>*</sup></label>
 
-                                        <div class="form-group__content">
+                                        <div className="form-group__content">
 
-                                            <input class="form-control" type="email"/>
+                                            <input className="form-control" type="email"/>
 
                                         </div>
 
                                     </div>
 
-                                    <div class="form-group">
+                                    <div className="form-group">
 
                                         <label>Country<sup>*</sup></label>
 
-                                        <div class="form-group__content">
+                                        <div className="form-group__content">
 
-                                            <input class="form-control" type="text"/>
+                                            <input className="form-control" type="text"/>
 
                                         </div>
 
                                     </div>
 
-                                    <div class="form-group">
+                                    <div className="form-group">
 
                                         <label>Phone<sup>*</sup></label>
 
-                                        <div class="form-group__content">
+                                        <div className="form-group__content">
 
-                                            <input class="form-control" type="text"/>
+                                            <input className="form-control" type="text"/>
 
                                         </div>
 
                                     </div>
 
-                                    <div class="form-group">
+                                    <div className="form-group">
 
                                         <label>Address<sup>*</sup></label>
 
-                                        <div class="form-group__content">
+                                        <div className="form-group__content">
 
-                                            <input class="form-control" type="text"/>
+                                            <input className="form-control" type="text"/>
 
                                         </div>
 
                                     </div>
 
-                                    <div class="form-group">
+                                    <div className="form-group">
 
-                                        <div class="ps-checkbox">
+                                        <div className="ps-checkbox">
 
-                                            <input class="form-control" type="checkbox" id="create-account"/>
+                                            <input className="form-control" type="checkbox" id="create-account"/>
 
                                             <label for="create-account">Guardar dirección?</label>
 
@@ -110,17 +111,17 @@ const CheckoutForm = () => {
 
                             </div>
 
-                            <div class="col-xl-5 col-lg-4 col-sm-12">
+                            <div className="col-xl-5 col-lg-4 col-sm-12">
 
-                                <div class="ps-form__total">
+                                <div className="ps-form__total">
 
-                                    <h3 class="ps-form__heading">Su Orden</h3>
+                                    <h3 className="ps-form__heading">Su Orden</h3>
 
-                                    <div class="content">
+                                    <div className="content">
 
-                                        <div class="ps-block--checkout-total">
+                                        <div className="ps-block--checkout-total">
 
-                                            <div class="ps-block__header d-flex justify-content-between">
+                                            <div className="ps-block__header d-flex justify-content-between">
 
                                                 <p>Producto</p>
 
@@ -128,9 +129,9 @@ const CheckoutForm = () => {
 
                                             </div>
 
-                                            <div class="ps-block__content">
+                                            <div className="ps-block__content">
 
-                                                <table class="table ps-block__products">
+                                                <table className="table ps-block__products">
 
                                                     <tbody>
 
@@ -141,7 +142,7 @@ const CheckoutForm = () => {
                                                                 <p>Sold By:<strong>YOUNG SHOP</strong></p>
                                                             </td>
 
-                                                            <td class="text-right">$57.99</td>
+                                                            <td className="text-right">$57.99</td>
 
                                                         </tr>
 
@@ -152,7 +153,7 @@ const CheckoutForm = () => {
                                                                 <p>Sold By:<strong>ROBERT’S STORE</strong></p>
                                                             </td>
 
-                                                            <td class="text-right">$625.50</td>
+                                                            <td className="text-right">$625.50</td>
 
                                                         </tr>
 
@@ -160,51 +161,51 @@ const CheckoutForm = () => {
 
                                                 </table>
                                                 
-                                                <h3 class="text-right">Total <span>$683.49</span></h3>
+                                                <h3 className="text-right">Total <span>$683.49</span></h3>
 
                                             </div>
 
                                         </div>
 
-                                        <hr class="py-3"/>
+                                        <hr className="py-3"/>
 
-                                        <div class="form-group">
+                                        <div className="form-group">
 
-                                            <div class="ps-radio">
+                                            <div className="ps-radio">
 
-                                                <input class="form-control" type="radio" id="pay-paypal" name="payment-method" value="paypal" checked/>
+                                                <input className="form-control" type="radio" id="pay-paypal" name="payment-method" value="paypal" checked/>
 
-                                                <label for="pay-paypal">Pay with paypal?  <span><img src="img/payment-method/paypal.jpg" class="w-50"/></span></label>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div class="form-group">
-
-                                            <div class="ps-radio">
-
-                                                <input class="form-control" type="radio" id="pay-payu" name="payment-method" value="payu"/>
-
-                                                <label for="pay-payu">Pay with payu? <span><img src="img/payment-method/payu.jpg" class="w-50"/></span></label>
+                                                <label for="pay-paypal">Pay with paypal?  <span><img src="img/payment-method/paypal.jpg" className="w-50"/></span></label>
 
                                             </div>
 
                                         </div>
 
-                                        <div class="form-group">
+                                        <div className="form-group">
 
-                                            <div class="ps-radio">
+                                            <div className="ps-radio">
 
-                                                <input class="form-control" type="radio" id="pay-mercadopago" name="payment-method" value="mercado-pago"/>
+                                                <input className="form-control" type="radio" id="pay-payu" name="payment-method" value="payu"/>
 
-                                                <label for="pay-mercadopago">Pay with Mercado Pago? <span><img src="img/payment-method/mercado_pago.jpg" class="w-50"/></span></label>
+                                                <label for="pay-payu">Pay with payu? <span><img src="img/payment-method/payu.jpg" className="w-50"/></span></label>
 
                                             </div>
 
                                         </div>
 
-                                        <a class="ps-btn ps-btn--fullwidth" href="checkout.html">Proceed to checkout</a>
+                                        <div className="form-group">
+
+                                            <div className="ps-radio">
+
+                                                <input className="form-control" type="radio" id="pay-mercadopago" name="payment-method" value="mercado-pago"/>
+
+                                                <label for="pay-mercadopago">Pay with Mercado Pago? <span><img src="img/payment-method/mercado_pago.jpg" className="w-50"/></span></label>
+
+                                            </div>
+
+                                        </div>
+
+                                        <a className="ps-btn ps-btn--fullwidth" href="checkout.html">Proceed to checkout</a>
 
                                     </div>
 
