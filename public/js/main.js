@@ -1,4 +1,4 @@
-(function($) {
+$(document).ready(function($) {
     "use strict";
     var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
@@ -367,7 +367,7 @@
         }
     }
 
-    function tabs() {
+    /* function tabs() {
         $('.ps-tab-list  li > a ').on('click', function(e) {
             e.preventDefault();
             var target = $(this).attr('href');
@@ -384,7 +384,7 @@
             $(target).addClass('active');
             $(target).siblings('.ps-tab').removeClass('active');
         });
-    }
+    } */
 
     function rating() {
         $('select.ps-rating').each(function() {
@@ -716,7 +716,6 @@
         subMenuToggle();
         masonry('.ps-masonry');
         productFilterToggle();
-        tabs();
         slickConfig();     
         productLightbox();        
         rating();
@@ -749,4 +748,4 @@
         scrollSpeed: 1000
     })
 
-})(jQuery);
+});

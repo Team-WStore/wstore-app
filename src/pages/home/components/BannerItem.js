@@ -1,20 +1,20 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
-const BannerItem = (props) => {
-
-    const { titulo, descripcion = "LOREM IPSUM" } = props;
+const BannerItem = ({ image, name, description, url, className }) => {
 
     return (
-        <>
-            <div className="ps-banner--market-4" data-background="img/slider/horizontal/1.jpg">
-                <img src="img/slider/horizontal/1.jpg" alt="bg"/>
-                <div className="ps-banner__content">
-                    <h4>{titulo}</h4>
-                    <h3>{descripcion}</h3>
-                    <a className="ps-btn" href="#/">Comprar Ahora</a>
-                </div>
+        <div className={`carousel-item ${className}`}>
+            <img className="d-block w-100" src={image} alt={name} />
+            <div className="carousel-caption d-none d-md-block">
+                    <div className='row'>
+                        <div className='col-4 mr-auto'>
+                            <h3>{name}</h3>
+                            <p className="d-bloc my-3">{description}</p>
+                            <Link to={url} className="ps-btn">Ver más</Link>
+                        </div>
+                    </div>
             </div>
-        </>
+        </div>
     );
 }
 

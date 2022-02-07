@@ -9,6 +9,9 @@ export const requests = async (url, method='GET', data={}, headers={})=>{
         body: JSON.stringify(data)
     };
 
+    if(method === 'GET' || method === 'DELETE') delete options.body;
+
     const resp = await fetch(process.env.REACT_APP_BACKEND_URL + url, options);
+    if(resp.status === 204) return {'ok':true};
     return await resp.json();
 }

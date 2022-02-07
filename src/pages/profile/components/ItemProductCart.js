@@ -1,54 +1,29 @@
-import React from 'react';
-import Swal from 'sweetalert2';
+import React, { memo, useContext } from 'react';
+import { ProductContext } from '../../../context/product/ProductContext';
 
 import { useCounter } from '../../../hooks/useCounter';
 
-const ItemProductCart = ({product}) => {
-    const [counter, increment, decrement] = useCounter(product.quantity, product.available);
+const ItemProductCart = memo(({ item }) => {
+    const { deleteFromCart, updateCart } = useContext(ProductContext);
 
-    const deleteProduct = async ()=>{
-        const result = await Swal.fire({
-            title: "¿Deseas eliminarlo del carrito de compras?",
-            showCancelButton: true,
-            cancelButtonText: "Cancelar",
-            confirmButtonText: "Sí",
-        });
-
-        if (result.isConfirmed) {
-            /* const data = await eliminar(id);
-            if (data._id) {
-                set(c => [...c].filter(c => c._id != id));
-                Swal.fire(
-                    'Eliminado Correctamente',
-                    '¡Todo salió bien!',
-                    'success'
-                );
-            } */
-
-            Swal.fire(
-                'Eliminado Correctamente',
-                '¡Todo salió bien!',
-                'success'
-            );
-        }
-    }
+    const [counter, increment, decrement] = useCounter(item.quantity, item.product.available, updateCart, item.id);
 
     return (
-        <tr>
+        <tr className='animate__animated animate__fadeInLeft'>
             <td>
                 <div className="ps-product--cart">
 
                     <div className="ps-product__thumbnail">
 
                         <a href="#/">
-                            <img src="../img/products/clothing/2.jpg" alt="Producto" />
+                            <img src={item.product.images[0].image} alt="Producto" />
                         </a>
 
                     </div>
 
                     <div className="ps-product__content">
 
-                        <a href="#/">{product.name}</a>
+                        <a href="#/">{item.product.name}</a>
 
                     </div>
 
@@ -56,9 +31,9 @@ const ItemProductCart = ({product}) => {
 
             </td>
 
-            <td className="price">$ {product.price}</td>
+            <td className="price">$ {item.product.price}</td>
 
-            <td className="text-center">$ {product.shipping}</td>
+            <td className="text-center">$ {item.shipping}</td>
 
             <td>
 
@@ -70,16 +45,16 @@ const ItemProductCart = ({product}) => {
 
             </td>
 
-            <td>$ {(product.price * counter + product.shipping).toFixed(2)}</td>
+            <td className='subtotal'>$ {(item.product.price * counter + item.shipping).toFixed(2)}</td>
 
             <td>
-                <a href="#/" onClick={deleteProduct}>
+                <a href="#/" onClick={async () => await deleteFromCart(item.id)}>
                     <i className="icon-cross"></i>
                 </a>
             </td>
 
         </tr>
     );
-}
+});
 
 export default ItemProductCart;

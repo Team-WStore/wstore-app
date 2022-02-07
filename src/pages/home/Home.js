@@ -1,20 +1,23 @@
-import React from 'react';
+import { useContext } from 'react';
 
 import Feautures from './components/Features';
 import HomeBanner from './components/HomeBanner';
-import TopList from './components/TopList';
 import Newsletter from './components/Newsletter';
+import { ProductContext } from '../../context/product/ProductContext';
+import { Products } from './components/Products';
+import TopList from './components/TopList';
 
 const Home = () => {
+    const { otherProducts, topCategories } = useContext(ProductContext);
+
     return (
         <div className="homepage-6">
             <HomeBanner />
-            <br/>
+            <br />
             <Feautures />
-            <TopList titulo="Top productos" />
-            <TopList titulo="Top categorias" />
-            <TopList titulo="Otros productos" />
-            <Newsletter/>
+            <TopList title="Top categorias" list={topCategories} />
+            <Products list={otherProducts} />
+            <Newsletter />
         </div>
     );
 }

@@ -1,7 +1,11 @@
-import React from 'react';
+import { useContext } from 'react';
+
+import { ProductContext } from '../../../context/product/ProductContext';
 import ItemProductWishList from './ItemProductWishList';
 
 const ItemMenuWishlist = () => {
+    const { wishlist } = useContext(ProductContext);
+
     return (
         <div className="table-responsive">
 
@@ -11,11 +15,11 @@ const ItemMenuWishlist = () => {
 
                     <tr>
 
-                        <th>Product name</th>
+                        <th>Nombre</th>
 
-                        <th>Unit Price</th>
+                        <th>Precio</th>
 
-                        <th>Stock Status</th>
+                        <th>Status</th>
 
                         <th></th>
 
@@ -26,33 +30,22 @@ const ItemMenuWishlist = () => {
                 </thead>
 
                 <tbody>
-
-                    <ItemProductWishList
-                        product={{
-                            url: 'img/products/electronic/1.jpg',
-                            name: 'Marshall Kilburn Wireless Bluetooth Speaker, Black (A4819189)',
-                            price: 205.0,
-                            stock: true,
-                        }}
-                    />
-
-                    <ItemProductWishList
-                        product={{
-                            url: 'img/products/clothing/2.jpg',
-                            name: 'Unero Military classNameical Backpack',
-                            price: 108.0,
-                            stock: true,
-                        }}
-                    />
-
-                    <ItemProductWishList
-                        product={{
-                            url: 'img/products/electronic/15.jpg',
-                            name: 'XtremepowerUS Stainless Steel Tumble Cloths Dryer',
-                            price: 508.0,
-                            stock: false,
-                        }}
-                    />
+                    {
+                        wishlist.length > 0
+                        ?
+                        wishlist.map(item => <ItemProductWishList
+                            key={item.id}
+                            item={item}
+                        />)
+                        :
+                        <tr>
+                            <td colSpan={2}>
+                                <div className="spinner-border text-danger mx-auto" role="status">
+                                    <span className="sr-only">Loading...</span>
+                                </div>
+                            </td>
+                        </tr>
+                    }
 
                 </tbody>
 

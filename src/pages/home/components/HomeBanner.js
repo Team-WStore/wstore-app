@@ -1,18 +1,34 @@
-import React from 'react';
+import { memo, useContext } from 'react';
+
+import { ProductContext } from '../../../context/product/ProductContext';
 import BannerItem from './BannerItem';
 
-const HomeBanner = () => {
-    return (  
-        <>
-            <div className="ps-home-banner">
-                <div className="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on" data-owl-animate-in="fadeIn" data-owl-animate-out="fadeOut">
-                    <BannerItem titulo="Home Element" descripcion="PRUEBA TESTING 2"/>
-                    <BannerItem titulo="Testing XD"/>
-                    <BannerItem titulo="Prueba"/>
-                </div>
+const HomeBanner = memo(() => {
+    const { slider } = useContext(ProductContext);
+
+    return (
+        <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+            <div className="carousel-inner">
+                {
+                    slider.map((item, i) => {
+                        return <BannerItem
+                            className={i === 0 ? 'active' : ''}
+                            key={item.id}
+                            {...item}
+                        />
+                    })
+                }
             </div>
-        </>
+            <button className="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="sr-only">Previous</span>
+            </button>
+            <button className="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="sr-only">Next</span>
+            </button>
+        </div>
     );
-}
+});
 
 export default HomeBanner;

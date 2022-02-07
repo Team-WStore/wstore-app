@@ -1,0 +1,12 @@
+.activeI {
+    display: block;
+}
+
+.inactiveI {
+    display: none;
+}
+
+.item a img {
+    width: 400px;
+    height: 440px;
+}

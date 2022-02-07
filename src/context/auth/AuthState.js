@@ -1,10 +1,11 @@
-import React, { useReducer } from "react";
+import { useContext, useReducer } from "react";
 
 import { AuthContext } from './AuthContext';
 import { authReducer } from './authReducer';
 
 import { types } from "../../types/types";
 import { requests } from "../../config/requests";
+import { AlertContext } from "../alerts/AlertContext";
 
 const init = () => {
     const token = localStorage['token'];
@@ -13,6 +14,8 @@ const init = () => {
 }
 
 const AuthState = ({ children }) => {
+    const { showAlert } = useContext(AlertContext);
+
     const [state, dispatch] = useReducer(authReducer, {
         token: null,
         user: null,
@@ -23,23 +26,19 @@ const AuthState = ({ children }) => {
     const signupUser = async (data) => {
         try {
             const resp = await requests('/auth/registration/', 'POST', data);
-
-            resp.key
-                ?
+            if (resp.key) {
                 dispatch({
                     type: types.signup_success,
                     payload: resp.key
-                })
-                :
+                });
+                showAlert('Registro exitoso. Bienvenido :)', 'alert-success');
+                await authenticatedUser();
+            } else {
                 dispatch({
                     type: types.signup_error,
-                    payload: {
-                        msg: 'No fue posible hace el registro',
-                        category: 'alert-error'
-                    }
                 });
-
-            await authenticatedUser();
+                showAlert('Error al registrar, usuario existente :(', 'alert-danger');
+            }
         } catch (err) {
             console.log(err);
         }
@@ -48,22 +47,20 @@ const AuthState = ({ children }) => {
     // Get current user
     const authenticatedUser = async () => {
         try {
-            const resp = await requests('/profile/', 'GET', {}, {
-                'Authorization': `Token ${localStorage["token"]})`
-            });
+            const token = localStorage["token"];
+            const resp = await requests('/profile/', 'GET', {},
+                { 'Authorization': "Token " + token }
+            );
+
             resp
                 ?
                 dispatch({
                     type: types.get_user,
-                    payload: resp.data.user
+                    payload: resp
                 })
                 :
                 dispatch({
                     type: types.login_error,
-                    payload: {
-                        msg: 'No fue posible cargar los datos del usuario',
-                        category: 'alert-error'
-                    }
                 });
         } catch (error) {
             console.log(error);
@@ -74,21 +71,19 @@ const AuthState = ({ children }) => {
     const login = async (data) => {
         try {
             const resp = await requests('/auth/login/', 'POST', data);
-            resp.key
-                ?
+            if (resp.key) {
                 dispatch({
                     type: types.login_success,
                     payload: resp.key
-                })
-                :
+                });
+                showAlert('Inicio de sesión exitoso', 'alert-success');
+                await authenticatedUser();
+            } else {
                 dispatch({
                     type: types.login_error,
-                    payload: {
-                        msg: 'Email o contraseña incorrectos',
-                        category: 'alert-error'
-                    }
                 });
-            //await authenticatedUser();
+                showAlert('Email o contraseña incorrectos', 'alert-danger');
+            }
         } catch (err) {
             console.log(err);
         }
@@ -126,9 +121,9 @@ const AuthState = ({ children }) => {
                 message: state.message,
                 signupUser,
                 login,
-                authenticatedUser,
                 logout,
-                logged: state.logged
+                logged: state.logged,
+                authenticatedUser,
             }}
         >
             {children}

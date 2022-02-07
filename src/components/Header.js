@@ -1,10 +1,16 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../context/auth/AuthContext';
+import { ProductContext } from '../context/product/ProductContext';
+import MiniCart from './MiniCart';
+import MiniCartMobile from './MiniCartMobile';
 
 const Header = () => {
     const { logged, logout } = useContext(AuthContext);
+    const { shoppingCart, wishlist } = useContext(ProductContext);
+    const navigate = useNavigate();
+
     return (
         <>
             <header className="header header--standard header--market-place-4" data-sticky="true">
@@ -20,13 +26,14 @@ const Header = () => {
                             </Link>
 
                             <div className="menu--product-categories">
+                                    <div className="menu__toggle">
+                                        {/* <i className="icon-menu"></i> */}
+                                        <span onClick={()=>navigate('/')}>
+                                            <img src="/img/logo5x5.png" height="70px" alt="Logo WStore" />
+                                        </span>
+                                    </div>
 
-                                <div className="menu__toggle">
-                                    <i className="icon-menu"></i>
-                                    <span>Categorias</span>
-                                </div>
-
-                                <div className="menu__content">
+                                {/* <div className="menu__content">
                                     <ul className="menu--dropdown">
                                         <li>
                                             <a href="#/"><i className="icon-star"></i> Hot Promotions</a>
@@ -67,7 +74,7 @@ const Header = () => {
                                     </ul>
 
                                 </div>
-
+ */}
                             </div>
 
                         </div>
@@ -84,77 +91,28 @@ const Header = () => {
                             <div className="header__actions">
 
                                 <Link to="/user/profile" className="header__extra">
-                                    <i className="icon-heart"></i><span><i>0</i></span>
+                                    <i className="icon-heart"></i><span><i>{wishlist.length}</i></span>
                                 </Link>
 
                                 <div className="ps-cart--mini">
 
-                                    <Link to="/user/cart" className="header__extra">
-                                        <i className="icon-bag2"></i><span><i>0</i></span>
-                                    </Link>
+                                    <a href="#/" className="header__extra">
+                                        <i className="icon-bag2"></i><span><i>{shoppingCart.length}</i></span>
+                                    </a>
 
-                                    <div className="ps-cart__content">
-
-                                        <div className="ps-cart__items">
-
-                                            <div className="ps-product--cart-mobile">
-
-                                                <div className="ps-product__thumbnail">
-                                                    <a href="#/">
-                                                        <img src="img/products/clothing/7.jpg" alt="" />
-                                                    </a>
-                                                </div>
-
-                                                <div className="ps-product__content">
-                                                    <a className="ps-product__remove" href="#/">
-                                                        <i className="icon-cross"></i>
-                                                    </a>
-                                                    <a href="#/">MVMTH Classical Leather Watch In Black</a>
-                                                    <p><strong>Sold by:</strong> YOUNG SHOP</p>
-                                                    <small>1 x $59.99</small>
-                                                </div>
-
-                                            </div>
-
-                                            <div className="ps-product--cart-mobile">
-
-                                                <div className="ps-product__thumbnail">
-                                                    <a href="#/">
-                                                        <img src="img/products/clothing/5.jpg" alt="" />
-                                                    </a>
-                                                </div>
-
-                                                <div className="ps-product__content">
-                                                    <a className="ps-product__remove" href="#/">
-                                                        <i className="icon-cross"></i>
-                                                    </a>
-                                                    <a href="#/">Sleeve Linen Blend Caro Pane Shirt</a>
-                                                    <p><strong>Sold by:</strong> YOUNG SHOP</p>
-                                                    <small>1 x $59.99</small>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div className="ps-cart__footer">
-
-                                            <h3>Sub Total:<strong>$59.99</strong></h3>
-                                            <figure>
-                                                <a className="ps-btn" href="#/">Ver Carrito</a>
-                                                <a className="ps-btn" href="#/">Checkout</a>
-                                            </figure>
-
-                                        </div>
-
-                                    </div>
+                                    <MiniCart />
 
                                 </div>
 
                                 <div className="ps-block--user-header">
-                                    <div className="ps-block__left">
-                                        <i className="icon-user"></i>
-                                    </div>
+
+                                    <Link to="/user/profile">
+                                        <div className="ps-block__left">
+                                            <i className="icon-user"></i>
+                                        </div>
+                                    </Link>
+
+
                                     {
                                         !logged
                                             ?
@@ -185,7 +143,7 @@ const Header = () => {
 
                     <div className="navigation__left">
 
-                        <div className="menu--product-categories">
+                        {/* <div className="menu--product-categories">
 
                             <div className="ps-shop__filter-mb mt-4" id="filter-sidebar">
                                 <i className="icon-menu "></i>
@@ -195,7 +153,7 @@ const Header = () => {
 
                                 <div className="ps-filter__header">
                                     <h3>Categorias</h3>
-                                    <a className="ps-btn--close ps-btn--no-boder" href="#/">sapos</a>
+                                    <a className="ps-btn--close ps-btn--no-boder" href="#/"></a>
                                 </div>
 
                                 <div className="ps-filter__content">
@@ -375,15 +333,15 @@ const Header = () => {
 
                             </div>
 
-                        </div>
+                        </div> */}
 
                     </div>
 
                     <div className="navigation__center">
 
-                        <a className="ps-logo" href="#/">
-                            <img src="img/template/logo_light.png" className="pt-3" alt="" />
-                        </a>
+                        <Link className="ps-logo" to="/" style={{ color: '#fff', fontSize: '30px' }}>
+                            WStore
+                        </Link>
                     </div>
 
                     <div className="navigation__right">
@@ -394,70 +352,10 @@ const Header = () => {
                             <div className="ps-cart--mini">
 
                                 <a className="header__extra" href="#/">
-                                    <i className="icon-bag2"></i><span><i>0</i></span>
+                                    <i className="icon-bag2"></i><span><i>{shoppingCart.length}</i></span>
                                 </a>
 
-                                <div className="ps-cart__content">
-
-                                    <div className="ps-cart__items">
-
-                                        <div className="ps-product--cart-mobile">
-
-                                            <div className="ps-product__thumbnail">
-                                                <a href="#/">
-                                                    <img src="img/products/clothing/7.jpg" alt="" />
-                                                </a>
-                                            </div>
-
-                                            <div className="ps-product__content">
-
-                                                <a className="ps-product__remove" href="#/">
-                                                    <i className="icon-cross"></i>
-                                                </a>
-
-                                                <a href="#/">MVMTH Classical Leather Watch In Black</a>
-                                                <p><strong>Sold by:</strong> YOUNG SHOP</p>
-                                                <small>1 x $59.99</small>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div className="ps-product--cart-mobile">
-
-                                            <div className="ps-product__thumbnail">
-
-                                                <a href="#/"><img src="img/products/clothing/5.jpg" alt="" /></a>
-
-                                            </div>
-
-                                            <div className="ps-product__content">
-                                                <a className="ps-product__remove" href="#/">
-                                                    <i className="icon-cross"></i>
-                                                </a>
-                                                <a href="#/">Sleeve Linen Blend Caro Pane Shirt</a>
-                                                <p><strong>Sold by:</strong> YOUNG SHOP</p>
-                                                <small>1 x $59.99</small>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div className="ps-cart__footer">
-
-                                        <h3>Sub Total:<strong>$59.99</strong></h3>
-
-                                        <figure>
-                                            <a className="ps-btn" href="#/">View Cart</a>
-                                            <a className="ps-btn" href="#/">Checkout</a>
-                                        </figure>
-
-                                    </div>
-
-                                </div>
-
+                                <MiniCart />
                             </div>
 
 
@@ -506,7 +404,7 @@ const Header = () => {
             </div>
 
 
-            <div className="ps-panel--sidebar" id="menu-mobile">
+            {/* <div className="ps-panel--sidebar" id="menu-mobile">
                 <div className="ps-panel__header">
                     <h3>Menu</h3>
                 </div>
@@ -686,13 +584,13 @@ const Header = () => {
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> */}
 
             <div className="ps-panel--sidebar" id="navigation-mobile">
                 <div className="ps-panel__header">
-                    <h3>Categorias</h3>
+                    <span><img src="/img/logo5x5.png" height="70px" alt="Logo WStore" /></span>
                 </div>
-                <div className="ps-panel__content">
+                {/* <div className="ps-panel__content">
                     <ul className="menu--mobile">
                         <li className="current-menu-item "><a href="#/">Hot Promotions</a>
                         </li>
@@ -719,7 +617,7 @@ const Header = () => {
                         <li className="current-menu-item "><a href="#/">Vouchers &amp; Services</a>
                         </li>
                     </ul>
-                </div>
+                </div> */}
             </div>
 
 
@@ -740,22 +638,9 @@ const Header = () => {
                 <div className="ps-panel__header">
                     <h3>Carrito Compras</h3>
                 </div>
-                <div className="navigation__content">
-                    <div className="ps-cart--mobile">
-                        <div className="ps-cart__content">
-                            <div className="ps-product--cart-mobile">
-                                <div className="ps-product__thumbnail"><a href="#/"><img src="img/products/clothing/7.jpg" alt="" /></a></div>
-                                <div className="ps-product__content"><a className="ps-product__remove" href="#/"><i className="icon-cross"></i></a><a href="product-default.html">MVMTH Classical Leather Watch In Black</a>
-                                    <p><strong>Sold by:</strong> YOUNG SHOP</p><small>1 x $59.99</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="ps-cart__footer">
-                            <h3>Sub Total:<strong>$59.99</strong></h3>
-                            <figure><a className="ps-btn" href="#/">View Cart</a><a className="ps-btn" href="#/">Checkout</a></figure>
-                        </div>
-                    </div>
-                </div>
+
+                <MiniCartMobile />
+
             </div>
         </>
     );

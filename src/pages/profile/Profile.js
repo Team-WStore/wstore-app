@@ -1,10 +1,24 @@
-import React, { useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 
 import MenuShopping from './components/MenuShopping';
 import MenuWishlist from './components/MenuWishlist';
 import Menu from './components/Menu';
+import { ProductContext } from '../../context/product/ProductContext';
+import { AuthContext } from '../../context/auth/AuthContext';
 
 const Profile = () => {
+    const { loadWishlist } = useContext(ProductContext);
+    const { token, user, logged, authenticatedUser } = useContext(AuthContext);
+
+    useEffect(() => {
+        loadWishlist();
+    }, []);
+
+    useEffect(() => {
+        if (logged){authenticatedUser();}
+    }, [token]);
+
+
     const [menu, setMenu] = useState(0);
 
     return (
@@ -20,7 +34,7 @@ const Profile = () => {
 
                             <div className="ps-block__user-avatar">
 
-                                <img src="../img/vendor/store/user/5.jpg" alt="Usuario" />
+                                <img src={user?.avatar === null ? '../img/vendor/store/user/no-avatar.png': "http://127.0.0.1:8000" + user?.avatar} alt="Usuario" />
 
                                 <div className="br-wrapper">
 
@@ -44,14 +58,15 @@ const Profile = () => {
 
                             <div className="ps-block__user-content text-center text-lg-left">
 
-                                <h2 className="text-white">Gilbert Maxiliun</h2>
+                                <h2 className="text-white">{user?.name === ''? 'NN': user?.name}</h2>
 
-                                <p><i className="fas fa-user"></i> maximiluin</p>
+                                {user?.lastname && <p><i className="fas fa-user"></i> {user?.lastname} </p>}
 
-                                <p><i className="fas fa-envelope"></i> gopro@gmail.com</p>
+                                <p><i className="fas fa-envelope"></i> {user?.email} </p>
 
                                 <button className="btn btn-warning btn-lg">Cambiar contraseña</button>
-
+                                
+                                {!user?.name && <p className='mt-4'>Te aconsejamos completar los datos de tu perfil</p>}
                             </div>
 
                             <div className="row ml-lg-auto pt-5">
@@ -60,7 +75,7 @@ const Profile = () => {
                                     <div className="text-center">
                                         <a href="#/">
                                             <h1><i className="fas fa-shopping-cart text-white"></i></h1>
-                                            <h5 className="text-white">Pedidos <span className="badge badge-secondary rounded-circle">51</span></h5>
+                                            <h5 className="text-white">Pedidos <span className="badge badge-secondary rounded-circle">0</span></h5>
                                         </a>
                                     </div>
                                 </div>
@@ -69,7 +84,7 @@ const Profile = () => {
                                     <div className="text-center">
                                         <a href="#/">
                                             <h1><i className="fas fa-shopping-bag text-white"></i></h1>
-                                            <h5 className="text-white">Productos <span className="badge badge-secondary rounded-circle">51</span></h5>
+                                            <h5 className="text-white">Productos <span className="badge badge-secondary rounded-circle">0</span></h5>
                                         </a>
                                     </div>
                                 </div>
@@ -78,7 +93,7 @@ const Profile = () => {
                                     <div className="text-center">
                                         <a href="#/">
                                             <h1><i className="fas fa-bell text-white"></i></h1>
-                                            <h5 className="text-white">Disputas <span className="badge badge-secondary rounded-circle">51</span></h5>
+                                            <h5 className="text-white">Disputas <span className="badge badge-secondary rounded-circle">0</span></h5>
                                         </a>
                                     </div>
                                 </div>
@@ -87,7 +102,7 @@ const Profile = () => {
                                     <div className="text-center">
                                         <a href="#/">
                                             <h1><i className="fas fa-comments text-white"></i></h1>
-                                            <h5 className="text-white">Mensajes <span className="badge badge-secondary rounded-circle">51</span></h5>
+                                            <h5 className="text-white">Mensajes <span className="badge badge-secondary rounded-circle">0</span></h5>
                                         </a>
                                     </div>
                                 </div>
@@ -100,8 +115,8 @@ const Profile = () => {
 
                     <div className="ps-section__content">
                         <Menu menu={menu} setMenu={setMenu} />
-                        {menu === 0 && <MenuShopping />}
-                        {menu === 1 && <MenuWishlist />}
+                        {menu === 0 && <MenuWishlist />}
+                        {menu === 1 && <MenuShopping />}
                     </div>
                 </div>
             </div>

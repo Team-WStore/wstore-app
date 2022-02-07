@@ -7,11 +7,11 @@ const Footer = () => {
                 <div className="ps-footer__widgets">  
 
                     <aside className="widget widget_footer widget_contact-us">
+                        <img src="/img/logo5x5.png" height="100px" className="mb-3" alt="Logo WStore"/>
 
                         <h4 className="widget-title">Contactanos</h4>
 
                         <div className="widget_content">
-
                             <p>Llámanos 24/7</p>
                             <h3>+57 320 123 4567</h3>
                             <p>Cll 1 #4-30, Bogotá, Colombia<br/>

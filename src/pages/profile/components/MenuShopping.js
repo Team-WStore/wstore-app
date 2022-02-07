@@ -37,7 +37,7 @@ const ItemMenuShopping = () => {
                                 <div className="ps-product__thumbnail">
 
                                     <a href="#/">
-                                        <img src="img/products/electronic/1.jpg" alt="" />
+                                        <img src="../img/products/electronic/1.jpg" alt="" />
                                     </a>
 
                                 </div>
@@ -134,7 +134,7 @@ const ItemMenuShopping = () => {
 
                                     <a href="#/">
 
-                                        <img src="img/products/clothing/2.jpg" alt="Ropa" />
+                                        <img src="../img/products/clothing/2.jpg" alt="Ropa" />
 
                                     </a>
                                 </div>
@@ -218,7 +218,7 @@ const ItemMenuShopping = () => {
 
                                     <a href="#/">
 
-                                        <img src="img/products/electronic/15.jpg" alt="Electronico" />
+                                        <img src="../img/products/electronic/15.jpg" alt="Electronico" />
 
                                     </a>
                                 </div>

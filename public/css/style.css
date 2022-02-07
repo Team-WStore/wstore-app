@@ -1757,7 +1757,7 @@ button {
   font-size: 16px;
   font-weight: 600;
   line-height: 20px;
-  color: #000;
+  color: #fff;
   border: none;
   font-weight: 600;
   border-radius: 4px;
@@ -1827,7 +1827,7 @@ button {
 }
 
 .ps-btn.ps-btn--black, button.ps-btn.ps-btn--black {
-  background-color: #000;
+  background-color: #686363;
 }
 
 .ps-btn.ps-btn--black.ps-btn--outline, button.ps-btn.ps-btn--black.ps-btn--outline {
@@ -1842,7 +1842,7 @@ button {
 }
 
 .ps-btn:hover, .ps-btn:active, button.ps-btn:hover, button.ps-btn:active {
-  background-color: #222;
+  background-color: #686363;
   color: #fff;
 }
 
@@ -3807,10 +3807,19 @@ textarea.form-control {
 .ps-block--user-header .ps-block__left i {
   font-size: 30px;
   line-height: 1em;
+  cursor: pointer;
+}
+.ps-block--user-header .ps-block__left:hover i {
+  color:#fff;
 }
 
 .ps-block--user-header .ps-block__right {
-  padding-left: 10px;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.ps-block--user-header .ps-block__right:hover {
+  color: #fff;
 }
 
 .ps-block--user-header .ps-block__right a {
@@ -15662,11 +15671,12 @@ textarea.form-control {
   font-size: 14px;
 }
 
-.header--standard .header__top-links .ps-block--user-header .ps-block__right a {
+.header--standard .header__top-links .ps-block--user-header .ps-block__right i {
   display: inline-block;
   font-weight: 400;
   margin-right: 10px;
-  color: #666666;
+  color: #000;
+  cursor: pointer;
 }
 
 .header--standard .header__top-links .ps-block--user-header .ps-block__right a:first-child:after {
@@ -17424,4 +17434,26 @@ ul.timeline > li.process:before {
 
 }
 
+.alert {
+  position: fixed;
+  bottom: 0;
+  left: 40%;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1000;
+  color: #000;
+  box-shadow: 0px 1px 5px #cccccc;
+}
 
+/* Banner */
+
+.carousel-control-next, .carousel-control-prev {
+  border: none;
+  background-color: transparent;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon{
+  background-color: #fd0061 !important;
+  padding: 1.5rem !important;
+  border-radius: .4rem;
+}

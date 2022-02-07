@@ -1,45 +1,25 @@
-import React from 'react';
-import Swal from 'sweetalert2';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
-const ItemProductWishList = ({product}) => {
-    const deleteProduct = async ()=>{
-        const result = await Swal.fire({
-            title: "¿Deseas eliminarlo de tu lista de deseos?",
-            showCancelButton: true,
-            cancelButtonText: "Cancelar",
-            confirmButtonText: "Sí",
-        });
+import { ProductContext } from '../../../context/product/ProductContext';
 
-        if (result.isConfirmed) {
-            /* const data = await eliminar(id);
-            if (data._id) {
-                set(c => [...c].filter(c => c._id != id));
-                Swal.fire(
-                    'Eliminado Correctamente',
-                    '¡Todo salió bien!',
-                    'success'
-                );
-            } */
+const ItemProductWishList = ({item}) => {
+    const {deleteWishlist, addToCart} = useContext(ProductContext);
 
-            Swal.fire(
-                'Eliminado Correctamente',
-                '¡Todo salió bien!',
-                'success'
-            );
-        }
-    }
+    const product = item.product;
+
     return (
-        <tr>
+        <tr className='animate__animated animate__fadeInLeft'>
 
             <td>
                 <div className="ps-product--cart">
                     <div className="ps-product__thumbnail">
-                        <a href="#/">
-                            <img src={product.url} alt="Product" />
-                        </a>
+                        <Link to={'/product/' + product.slug}>
+                            <img src={product.images[0].image} alt="Product" />
+                        </Link>
                     </div>
                     <div className="ps-product__content">
-                        <a href="#/">{product.name}</a>
+                        <Link to={'/product/' + product.slug}>{product.name}</Link>
                     </div>
                 </div>
             </td>
@@ -48,7 +28,7 @@ const ItemProductWishList = ({product}) => {
 
             <td>
                 {
-                    product.stock
+                    product.available > 0
                     ?
                     <span className="ps-tag ps-tag--in-stock">En-stock</span>
                     :
@@ -57,11 +37,14 @@ const ItemProductWishList = ({product}) => {
             </td>
 
             <td>
-                {product.stock && <a className="ps-btn" href="#/">Añadir al carrito</a>}
+                {product.available > 0 && <button onClick={async()=>{
+                    await addToCart(product.id);
+                    await deleteWishlist(item.id);
+                }} className="ps-btn">Añadir al carrito</button>}
             </td>
 
             <td>
-                <a href="#/" onClick={deleteProduct}>
+                <a href="#/" onClick={async ()=>await deleteWishlist(item.id)}>
                     <i className="icon-cross"></i>
                 </a>
             </td>

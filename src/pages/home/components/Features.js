@@ -9,7 +9,7 @@ const Feautures = () => {
                     <div className="ps-block__item">
                         <div className="ps-block__left"><i className="icon-rocket"></i></div>
                         <div className="ps-block__right">
-                            <h4>Envios gratis</h4>
+                            <h4>Envíos gratis</h4>
                             <p>para ordenes mayores a $60.000</p>
                         </div>
                     </div>
@@ -17,7 +17,7 @@ const Feautures = () => {
                     <div className="ps-block__item">
                         <div className="ps-block__left"><i className="icon-sync"></i></div>
                         <div className="ps-block__right">
-                            <h4>90 dias para devoluciones</h4>
+                            <h4>90 días para devoluciones</h4>
                             <p>Si los productos tienen problemas</p>
                         </div>
                     </div>

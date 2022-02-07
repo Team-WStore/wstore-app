@@ -1,5 +1,46 @@
+import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { AlertContext } from "../../../context/alerts/AlertContext";
+
+import { ProductContext } from "../../../context/product/ProductContext";
+import { useForm } from "../../../hooks/useForm";
+import { Paypal } from "../Paypal";
+import ItemProductCheckout from "./ItemProductCheckout";
+
 const CheckoutForm = () => {
+    const { total, shoppingCart, makePayment } = useContext(ProductContext);
+    const [products, setProducts] = useState([]);
+    const { showAlert } = useContext(AlertContext);
+    const [successPay, setSuccessPay] = useState(false);
+    const [orderId, setOrderId] = useState('');
+    const [correct, setCorrect] = useState(false);
+
+    const [{ city, address, zip }, handleInpuntChange] = useForm({
+        city: '',
+        address: '',
+        zip: '',
+    });
+
+    useEffect(() => {
+      if(shoppingCart.length > 0) setProducts(shoppingCart);
+    }, [shoppingCart]);
     
+
+    useEffect(()=>{
+        setCorrect(city !== '' && address !== '' && zip !== '');
+    }, [city, address, zip]);
+
+    useEffect(() => {
+        setCorrect(city !== '' && address !== '' && zip !== '');
+        if (successPay) {
+            if(correct) makePayment({ city, address, zip, charge_id: orderId, total });
+            else {
+                showAlert("Aún te falta llenar el formulario", 'alert-danger');
+            }
+        } 
+    }, [orderId]);
+
+
     return (
         <div className="ps-checkout ps-section--shopping">
 
@@ -7,13 +48,13 @@ const CheckoutForm = () => {
 
                 <div className="ps-section__header">
 
-                    <h1>Checkout</h1>
+                    <h1>Detalles de pago</h1>
 
                 </div>
 
                 <div className="ps-section__content">
 
-                    <form className="ps-form--checkout" action="do_action" method="post">
+                    <form className="ps-form--checkout">
 
                         <div className="row">
 
@@ -21,15 +62,22 @@ const CheckoutForm = () => {
 
                                 <div className="ps-form__billing-info">
 
-                                    <h3 className="ps-form__heading">Detalles de Facturación</h3>
+                                    <h3 className="ps-form__heading">Detalles de facturación para el envío</h3>
+
 
                                     <div className="form-group">
 
-                                        <label>First Name<sup>*</sup></label>
+                                        <label>Ciudad<sup>*</sup></label>
 
                                         <div className="form-group__content">
 
-                                            <input className="form-control" type="text"/>
+                                            <input
+                                                className="form-control"
+                                                type="text"
+                                                name="city"
+                                                value={city}
+                                                onChange={handleInpuntChange}
+                                            />
 
                                         </div>
 
@@ -37,11 +85,17 @@ const CheckoutForm = () => {
 
                                     <div className="form-group">
 
-                                        <label>Last Name<sup>*</sup></label>
+                                        <label>Dirección<sup>*</sup></label>
 
                                         <div className="form-group__content">
 
-                                            <input className="form-control" type="text"/>
+                                            <input
+                                                className="form-control"
+                                                type="text"
+                                                name="address"
+                                                value={address}
+                                                onChange={handleInpuntChange}
+                                            />
 
                                         </div>
 
@@ -49,59 +103,17 @@ const CheckoutForm = () => {
 
                                     <div className="form-group">
 
-                                        <label>Email Address<sup>*</sup></label>
+                                        <label>Código zip<sup>*</sup></label>
 
                                         <div className="form-group__content">
 
-                                            <input className="form-control" type="email"/>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div className="form-group">
-
-                                        <label>Country<sup>*</sup></label>
-
-                                        <div className="form-group__content">
-
-                                            <input className="form-control" type="text"/>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div className="form-group">
-
-                                        <label>Phone<sup>*</sup></label>
-
-                                        <div className="form-group__content">
-
-                                            <input className="form-control" type="text"/>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div className="form-group">
-
-                                        <label>Address<sup>*</sup></label>
-
-                                        <div className="form-group__content">
-
-                                            <input className="form-control" type="text"/>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div className="form-group">
-
-                                        <div className="ps-checkbox">
-
-                                            <input className="form-control" type="checkbox" id="create-account"/>
-
-                                            <label for="create-account">Guardar dirección?</label>
+                                            <input
+                                                className="form-control"
+                                                type="text"
+                                                name="zip"
+                                                value={zip}
+                                                onChange={handleInpuntChange}
+                                            />
 
                                         </div>
 
@@ -135,77 +147,47 @@ const CheckoutForm = () => {
 
                                                     <tbody>
 
-                                                        <tr>
-
-                                                            <td>
-                                                                <a href="#"> MVMTH Classical Leather Watch In Black ×1</a>
-                                                                <p>Sold By:<strong>YOUNG SHOP</strong></p>
-                                                            </td>
-
-                                                            <td className="text-right">$57.99</td>
-
-                                                        </tr>
-
-                                                        <tr>
-
-                                                            <td>
-                                                                <a href="#"> Apple Macbook Retina Display 12” × 1</a>
-                                                                <p>Sold By:<strong>ROBERT’S STORE</strong></p>
-                                                            </td>
-
-                                                            <td className="text-right">$625.50</td>
-
-                                                        </tr>
+                                                        {
+                                                            products.length > 0
+                                                                ?
+                                                                products?.map(i => <ItemProductCheckout
+                                                                    key={i.id}
+                                                                    item={i}
+                                                                />)
+                                                                :
+                                                                <tr>
+                                                                    <td colSpan={2}>
+                                                                        <div className="spinner-border text-danger mx-auto" role="status">
+                                                                            <span className="sr-only">Loading...</span>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                        }
 
                                                     </tbody>
 
                                                 </table>
-                                                
-                                                <h3 className="text-right">Total <span>$683.49</span></h3>
+
+                                                <h3 className="text-right">Total <span>$ {total}</span></h3>
 
                                             </div>
 
                                         </div>
 
-                                        <hr className="py-3"/>
+                                        <hr className="py-3" />
 
-                                        <div className="form-group">
+                                        {
+                                            (total > 0 & correct)
+                                            &&
+                                            <Paypal
+                                                total={total}
+                                                setOrderId={setOrderId}
+                                                orderId={orderId}
+                                                setSuccessPay={setSuccessPay}
+                                            />
+                                        }
 
-                                            <div className="ps-radio">
-
-                                                <input className="form-control" type="radio" id="pay-paypal" name="payment-method" value="paypal" checked/>
-
-                                                <label for="pay-paypal">Pay with paypal?  <span><img src="img/payment-method/paypal.jpg" className="w-50"/></span></label>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div className="form-group">
-
-                                            <div className="ps-radio">
-
-                                                <input className="form-control" type="radio" id="pay-payu" name="payment-method" value="payu"/>
-
-                                                <label for="pay-payu">Pay with payu? <span><img src="img/payment-method/payu.jpg" className="w-50"/></span></label>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div className="form-group">
-
-                                            <div className="ps-radio">
-
-                                                <input className="form-control" type="radio" id="pay-mercadopago" name="payment-method" value="mercado-pago"/>
-
-                                                <label for="pay-mercadopago">Pay with Mercado Pago? <span><img src="img/payment-method/mercado_pago.jpg" className="w-50"/></span></label>
-
-                                            </div>
-
-                                        </div>
-
-                                        <a className="ps-btn ps-btn--fullwidth" href="checkout.html">Proceed to checkout</a>
+                                        {successPay && <Link className="ps-btn ps-btn--fullwidth" replace={true} to="/">Ir a la tienda</Link>}
 
                                     </div>
 
