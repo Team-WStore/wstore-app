@@ -15,7 +15,7 @@ const ItemProduct = memo(({ item }) => {
     }
 
     return (
-        <div className="animate__animated animate__fadeIn col-sm-6">
+        <div className="animate__animated animate__fadeIn col-sm-2">
             <div className="card">
                 <div className='img'>
                     <img src={item.images[0].image} className="card-img-top" alt={item.name} />
