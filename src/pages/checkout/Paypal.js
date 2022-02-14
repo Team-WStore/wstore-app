@@ -3,7 +3,7 @@ import { useEffect, useContext } from 'react';
 
 import { AlertContext } from '../../context/alerts/AlertContext';
 
-export const Paypal = ({ total, setSuccessPay, setOrderId, orderId }) => {
+export const Paypal = ({ total, setSuccessPay, setOrderId }) => {
 
     const { showAlert } = useContext(AlertContext);
 
@@ -17,7 +17,7 @@ export const Paypal = ({ total, setSuccessPay, setOrderId, orderId }) => {
                             description: "Pago de tu factura por los productos",
                             amount: {
                                 currency_code: "USD",
-                                value: total,
+                                value: total.toFixed(2),
                             },
                         },
                     ],

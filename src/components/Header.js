@@ -26,12 +26,12 @@ const Header = () => {
                             </Link>
 
                             <div className="menu--product-categories">
-                                    <div className="menu__toggle">
-                                        {/* <i className="icon-menu"></i> */}
-                                        <span onClick={()=>navigate('/')}>
-                                            <img src="/img/logo5x5.png" height="70px" alt="Logo WStore" />
-                                        </span>
-                                    </div>
+                                <div className="menu__toggle">
+                                    {/* <i className="icon-menu"></i> */}
+                                    <span onClick={() => navigate('/')}>
+                                        <img src="/img/logo5x5.png" height="70px" alt="Logo WStore" />
+                                    </span>
+                                </div>
 
                                 {/* <div className="menu__content">
                                     <ul className="menu--dropdown">
@@ -99,9 +99,11 @@ const Header = () => {
                                     <a href="#/" className="header__extra">
                                         <i className="icon-bag2"></i><span><i>{shoppingCart.length}</i></span>
                                     </a>
-
-                                    <MiniCart />
-
+                                    {
+                                        shoppingCart.length > 0
+                                        &&
+                                        <MiniCart />
+                                    }
                                 </div>
 
                                 <div className="ps-block--user-header">
@@ -638,8 +640,11 @@ const Header = () => {
                 <div className="ps-panel__header">
                     <h3>Carrito Compras</h3>
                 </div>
-
-                <MiniCartMobile />
+                {
+                    shoppingCart.length > 0
+                    &&
+                    <MiniCartMobile />
+                }
 
             </div>
         </>

@@ -12,7 +12,7 @@ const MiniCart = () => {
 
       <div className="ps-cart__items">
         {
-            shoppingCart.length > 0
+          shoppingCart.length > 0
             ?
             shoppingCart.map(item => <ItemMiniCart key={item.id} item={item} />)
             :
@@ -26,11 +26,17 @@ const MiniCart = () => {
 
       <div className="ps-cart__footer">
 
-        <h3>Total con envío:<strong>$ {total}</strong></h3>
+        <h3>Total con envío:<strong>$ {total.toFixed(2)}</strong></h3>
 
         <figure>
           <Link className="ps-btn" to="/user/cart">Ver carrito</Link>
-          <a className="ps-btn" href="#/">Ordenar</a>
+          {
+            shoppingCart.length > 0
+            &&
+            <Link className="ps-btn" to="/user/checkout">
+              Comprar
+            </Link>
+          }
         </figure>
 
       </div>

@@ -24,7 +24,7 @@ const ItemMiniCart = memo(({ item }) => {
 
                 <Link to={'/product/' + product.slug}>{product.name}</Link>
                 <p><strong>Vendido por:</strong>{product.brand.name}</p>
-                <small>{item.quantity} x $ {product.price}</small>
+                <small>{item.quantity} x $ {product.discount_price}</small>
 
             </div>
 

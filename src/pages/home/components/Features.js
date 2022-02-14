@@ -10,7 +10,7 @@ const Feautures = () => {
                         <div className="ps-block__left"><i className="icon-rocket"></i></div>
                         <div className="ps-block__right">
                             <h4>Envíos gratis</h4>
-                            <p>para ordenes mayores a $60.000</p>
+                            <p>para ordenes mayores a 60 USD</p>
                         </div>
                     </div>
 

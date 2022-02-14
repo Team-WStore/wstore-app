@@ -168,7 +168,7 @@ const CheckoutForm = () => {
 
                                                 </table>
 
-                                                <h3 className="text-right">Total <span>$ {total}</span></h3>
+                                                <h3 className="text-right">Total <span>$ {total.toFixed(2)}</span></h3>
 
                                             </div>
 
@@ -182,7 +182,6 @@ const CheckoutForm = () => {
                                             <Paypal
                                                 total={total}
                                                 setOrderId={setOrderId}
-                                                orderId={orderId}
                                                 setSuccessPay={setSuccessPay}
                                             />
                                         }

@@ -70,7 +70,7 @@ const ItemMenuCart = () => {
                     <hr />
 
                     <div className="d-flex flex-row-reverse">
-                        <div className="p-2"><h3>Total <span>$ {total}</span></h3></div>
+                        <div className="p-2"><h3>Total <span>$ {total.toFixed(2)}</span></h3></div>
                     </div>
 
                     <div className="ps-section__cart-actions">
@@ -79,9 +79,13 @@ const ItemMenuCart = () => {
                             <i className="icon-arrow-left"></i> Atrás
                         </a>
 
-                        <Link className="ps-btn" to="/user/checkout">
+                        {
+                            shoppingCart.length > 0
+                            &&
+                            <Link className="ps-btn" to="/user/checkout">
                             Comprar <i className="icon-arrow-right"></i>
-                        </Link>
+                            </Link>
+                        }
 
                     </div>
 

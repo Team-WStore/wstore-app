@@ -88,24 +88,6 @@ const Profile = () => {
                                         </a>
                                     </div>
                                 </div>
-
-                                <div className="col-lg-3 col-6">
-                                    <div className="text-center">
-                                        <a href="#/">
-                                            <h1><i className="fas fa-bell text-white"></i></h1>
-                                            <h5 className="text-white">Disputas <span className="badge badge-secondary rounded-circle">0</span></h5>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-3 col-6">
-                                    <div className="text-center">
-                                        <a href="#/">
-                                            <h1><i className="fas fa-comments text-white"></i></h1>
-                                            <h5 className="text-white">Mensajes <span className="badge badge-secondary rounded-circle">0</span></h5>
-                                        </a>
-                                    </div>
-                                </div>
                             </div>
 
                         </div>

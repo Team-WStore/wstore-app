@@ -1,4 +1,5 @@
 import React, { memo, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { ProductContext } from '../../../context/product/ProductContext';
 
 import { useCounter } from '../../../hooks/useCounter';
@@ -23,7 +24,7 @@ const ItemProductCart = memo(({ item }) => {
 
                     <div className="ps-product__content">
 
-                        <a href="#/">{item.product.name}</a>
+                        <Link to={`/product/`+item.product.slug}>{item.product.name}</Link>
 
                     </div>
 
@@ -31,7 +32,7 @@ const ItemProductCart = memo(({ item }) => {
 
             </td>
 
-            <td className="price">$ {item.product.price}</td>
+            <td className="price">$ {item.product.discount_price}</td>
 
             <td className="text-center">$ {item.shipping}</td>
 
@@ -45,7 +46,7 @@ const ItemProductCart = memo(({ item }) => {
 
             </td>
 
-            <td className='subtotal'>$ {(item.product.price * counter + item.shipping).toFixed(2)}</td>
+            <td className='subtotal'>$ {(item.product.discount_price * counter + item.shipping).toFixed(2)}</td>
 
             <td>
                 <a href="#/" onClick={async () => await deleteFromCart(item.id)}>

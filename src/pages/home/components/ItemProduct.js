@@ -53,12 +53,12 @@ const ItemProduct = memo(({ item }) => {
                         <div className='col-8'>
                             <div className='row'>
                                 <div className='col original-price'>
-                                    $ {item.discount_price}
+                                    $ {item.price}
                                 </div>
                             </div>
 
                             <div className='row'>
-                                <div className='col discount-price'>$ {item.price}</div>
+                                <div className='col discount-price'>$ {item.discount_price}</div>
                             </div>
                         </div>
 

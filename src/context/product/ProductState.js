@@ -17,12 +17,13 @@ const ProductState = ({ children }) => {
     const [topCategories, setTopCategories] = useState([]);
     const [otherProducts, setOtherProducts] = useState([]);
     const [slider, setSlider] = useState([]);
+    const [orders, setOrders] = useState([]);
 
     const [total, setTotal] = useState(0);
     useEffect(() => {
         let total = 0;
         shoppingCart.forEach(i => {
-            total += i.product.price * i.quantity + 1
+            total += i.product.discount_price * i.quantity + 1
         });
         setTotal(total);
     }, [shoppingCart]);
@@ -281,6 +282,22 @@ const ProductState = ({ children }) => {
         }
     }
 
+    const loadOrders = async () => {
+        try {
+            const resp = await requests('/order-detail/', 'GET', {},
+            { 'Authorization': `Token ${localStorage["token"]}` });
+
+            resp
+                ?
+                setOrders(resp)
+                :
+                setOrders([])
+                ;
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     return (
         <ProductContext.Provider
             value={{
@@ -305,6 +322,8 @@ const ProductState = ({ children }) => {
                 loadProduct,
                 product,
                 makePayment,
+                loadOrders,
+                orders,
             }}
         >
             {children}

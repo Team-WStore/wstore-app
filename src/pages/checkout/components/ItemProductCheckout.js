@@ -9,7 +9,7 @@ const ItemProductCheckout = ({ item }) => {
                 <p>Vendido por:<strong> {item.product.brand.name} </strong></p>
             </td>
 
-            <td className="text-right">$ {item.quantity * item.product.price + 2000} con envío</td>
+            <td className="text-right">$ {(item.quantity * item.product.discount_price + 1).toFixed(2)} con envío</td>
 
         </tr>
     );

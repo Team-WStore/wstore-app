@@ -1,6 +1,17 @@
-import React from 'react';
+import { useContext, useEffect } from 'react';
 
-const ItemMenuShopping = () => {
+import { ProductContext } from '../../../context/product/ProductContext';
+import ItemShopping from './ItemShopping';
+
+const MenuShopping = () => {
+
+    const { loadOrders, orders } = useContext(ProductContext);
+
+    useEffect(() => {
+        loadOrders();
+    }, []);
+
+
     return (
         <div className="table-responsive">
 
@@ -10,15 +21,13 @@ const ItemMenuShopping = () => {
 
                     <tr>
 
-                        <th>Product name</th>
+                        <th>Productos</th>
 
-                        <th>Proccess</th>
+                        <th>Proceso</th>
 
-                        <th>Price</th>
+                        <th>Precio</th>
 
-                        <th>Quantity</th>
-
-                        <th>Review</th>
+                        <th>Cantidad</th>
 
                     </tr>
 
@@ -26,105 +35,24 @@ const ItemMenuShopping = () => {
 
                 <tbody>
 
-                    {/* Product */}
-
-                    <tr>
-
-                        <td>
-
-                            <div className="ps-product--cart">
-
-                                <div className="ps-product__thumbnail">
-
-                                    <a href="#/">
-                                        <img src="../img/products/electronic/1.jpg" alt="" />
-                                    </a>
-
-                                </div>
-
-                                <div className="ps-product__content">
-
-                                    <a href="#/">Marshall Kilburn Wireless Bluetooth Speaker, Black (A4819189)</a>
-
-                                </div>
-
-                            </div>
-
-                        </td>
-
-                        <td>
-
-                            <ul className="timeline">
-                                <li className="success">
-                                    <h5>15 March, 2020</h5>
-                                    <p className="text-success">Reviewed <i className="fas fa-check"></i></p>
-
-                                    <div className="media border p-3">
-                                        <div className="media-body">
-                                            <h4><small><i>Dispute on march 17, 2020</i></small></h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates hic maxime modi commodi.</p>
-                                        </div>
-                                        <img src="img/vendor/store/user/5.jpg" alt="John Doe" className="ml-3 mt-3 rounded-circle" style={{ width: '60px' }} />
+                    {
+                        orders.length > 0
+                            ?
+                            orders.map(order => <ItemShopping
+                                key={order.ref_code}
+                                order={order}
+                            />)
+                            :
+                            <tr>
+                                <td colSpan={2}>
+                                    <div className="spinner-border text-danger mx-auto" role="status">
+                                        <span className="sr-only">Loading...</span>
                                     </div>
+                                </td>
+                            </tr>
+                    }
 
-                                    <div className="media border p-3">
-
-                                        <img src="img/vendor/vendor-store.jpg" alt="John Doe" className="ml-3 mt-3 rounded-circle" style={{ width: '60px' }} />
-                                        <div className="media-body text-right">
-                                            <h4><small><i>Answer on march 17, 2020</i></small></h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates hic maxime modi commodi.</p>
-                                        </div>
-
-                                    </div>
-
-                                </li>
-                                <li className="success">
-                                    <h5>18 March, 2020</h5>
-                                    <p className="text-success">Sent <i className="fas fa-check"></i></p>
-                                    <p>Comment: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum quaerat recusandae <br /><a href="#/" target="_blank">ID TRACK A24S36343DWS4</a></p>
-                                </li>
-                                <li className="success">
-                                    <h5>23 March, 2020</h5>
-                                    <p className="text-success">Delivered <i className="fas fa-check"></i></p>
-                                    <p>Comment: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum quaerat recusandae necessitatibus nesciunt</p>
-                                </li>
-                            </ul>
-
-                            <a className="btn btn-warning btn-lg" href="#/">Repurchase</a>
-
-                        </td>
-
-                        <td className="price text-center">$108.00</td>
-
-                        <td className="text-center">2</td>
-
-                        <td>
-
-                            <div className="text-center  mt-2">
-
-                                <div className="br-theme-fontawesome-stars">
-
-                                    <select className="ps-rating" data-read-only="true" style={{ display: 'none' }}>
-                                        <option value="1">1</option>
-                                        <option value="1">2</option>
-                                        <option value="1">3</option>
-                                        <option value="1">4</option>
-                                        <option value="2">5</option>
-                                    </select>
-
-                                </div>
-
-                                <a className="btn btn-warning btn-lg" href="#/">Add comment</a>
-
-                            </div>
-
-                        </td>
-
-                    </tr>
-
-                    {/* Product */}
-
-                    <tr>
+                    {/* <tr>
 
                         <td>
 
@@ -205,8 +133,8 @@ const ItemMenuShopping = () => {
                         </td>
 
                     </tr>
+                    
 
-                    {/* Product */}
 
                     <tr>
 
@@ -305,14 +233,14 @@ const ItemMenuShopping = () => {
 
                         </td>
 
-                    </tr>
+                    </tr> */}
 
                 </tbody>
 
             </table>
 
         </div>
-    )
+    );
 }
 
-export default ItemMenuShopping;
+export default MenuShopping;
