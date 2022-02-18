@@ -16,7 +16,7 @@ const Home = () => {
             <br />
             <Feautures />
             <TopList title="Top categorias" list={topCategories} />
-            <Products list={otherProducts} />
+            <Products name="Otros productos" list={otherProducts} />
             <Newsletter />
         </div>
     );

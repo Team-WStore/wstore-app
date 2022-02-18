@@ -18,6 +18,7 @@ const ProductState = ({ children }) => {
     const [otherProducts, setOtherProducts] = useState([]);
     const [slider, setSlider] = useState([]);
     const [orders, setOrders] = useState([]);
+    const [searchResults, setSearchResults] = useState([]);
 
     const [total, setTotal] = useState(0);
     useEffect(() => {
@@ -27,6 +28,14 @@ const ProductState = ({ children }) => {
         });
         setTotal(total);
     }, [shoppingCart]);
+
+    useEffect(() => {
+      if(!logged){
+          setShoppingCart([]);
+          setWishlist([]);
+      }
+    }, [logged]);
+    
 
     const loadCategory = async () => {
         try {
@@ -268,12 +277,12 @@ const ProductState = ({ children }) => {
                     });
                     setShoppingCart([]);
                 } else
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error al registrar pago en el sistema',
-                    text: 'Guarda el ID de tu pago y comunícate a wstore@contact.com',
-                    html: `<p>Tu ID de pago es: ${data.orderId} </p></div>`
-                });
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error al registrar pago en el sistema',
+                        text: 'Guarda el ID de tu pago y comunícate a wstore@contact.com',
+                        html: `<p>Tu ID de pago es: ${data.orderId} </p></div>`
+                    });
             } else {
                 showAlert('Inicia sesión con tu cuenta. Gracias :)', 'alert-danger');
             }
@@ -285,7 +294,7 @@ const ProductState = ({ children }) => {
     const loadOrders = async () => {
         try {
             const resp = await requests('/order-detail/', 'GET', {},
-            { 'Authorization': `Token ${localStorage["token"]}` });
+                { 'Authorization': `Token ${localStorage["token"]}` });
 
             resp
                 ?
@@ -293,6 +302,21 @@ const ProductState = ({ children }) => {
                 :
                 setOrders([])
                 ;
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    const searchFor = async (phrase) => {
+        try {
+            const resp = await requests('/search/', 'POST', { phrase });
+
+            resp
+                ?
+                setSearchResults(resp)
+                :
+                setSearchResults([]);
+
         } catch (err) {
             console.log(err);
         }
@@ -324,6 +348,8 @@ const ProductState = ({ children }) => {
                 makePayment,
                 loadOrders,
                 orders,
+                searchFor,
+                searchResults,
             }}
         >
             {children}

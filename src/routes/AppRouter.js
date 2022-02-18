@@ -15,6 +15,7 @@ import Home from '../pages/home/Home';
 import Access from '../pages/loginAndregister/Access';
 
 import Product from '../pages/product/Product';
+import Search from '../pages/search/Search';
 import DashboardRoutes from './DashboardRoutes';
 import PrivateRoutes from './PrivateRoutes';
 import PublicRoutes from './PublicRoutes';
@@ -67,6 +68,10 @@ const AppRouter = () => {
                 <Route
                     path='/product/:slug'
                     element={<Product />}
+                />
+                <Route
+                    path='/search'
+                    element={<Search />}
                 />
                 <Route
                     path='/login'
