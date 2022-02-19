@@ -18,7 +18,7 @@ const ItemProduct = memo(({ item }) => {
         <div className="animate__animated animate__fadeIn col-sm-2">
             <div className="card">
                 <div className='img'>
-                    <img src={item.images[0].image} className="card-img-top" alt={item.name} />
+                    <img src={item?.images[0]?.image} className="card-img-top" alt={item?.name} />
                 </div>
 
                 <div className="card-body">
@@ -43,7 +43,7 @@ const ItemProduct = memo(({ item }) => {
                             </div>
 
                             <div className='row'>
-                                <div className='col name' onClick={() =>navigate('/product/'+item.slug)}>{item.name}</div>
+                                <div className='col name' onClick={() =>navigate('/product/'+item?.slug)}>{item?.name}</div>
                             </div>
                         </div>
                     </div>
@@ -53,17 +53,17 @@ const ItemProduct = memo(({ item }) => {
                         <div className='col-8'>
                             <div className='row'>
                                 <div className='col original-price'>
-                                    $ {item.price}
+                                    $ {item?.price}
                                 </div>
                             </div>
 
                             <div className='row'>
-                                <div className='col discount-price'>$ {item.discount_price}</div>
+                                <div className='col discount-price'>$ {item?.discount_price}</div>
                             </div>
                         </div>
 
                         <div className='col-4'>
-                            <div className='rounded-pill p-1 h-gray' onClick={() => addToCart(item.id)}>
+                            <div className='rounded-pill p-1 h-gray' onClick={() => addToCart(item?.id)}>
                                 <i className="fas fa-shopping-bag icon mt-2 ml-2"></i>
                             </div>
                         </div>

@@ -11,8 +11,8 @@ export const Products = ({ name, list }) => {
                 {
                     list?.length >0
                     &&
-                    list.map(item => <ItemProduct
-                        key={item.id}
+                    list?.map(item => <ItemProduct
+                        key={item?.id}
                         item={item}
                     />)
                 }
