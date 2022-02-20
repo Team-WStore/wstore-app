@@ -37,7 +37,7 @@ const ItemShopping = ({ order }) => {
                                     <p className="text-success">Enviado <i className="fas fa-check"></i></p>
                                     :
                                     <>
-                                        <p className="text-danger">Entregado <i className="fas fa-times"></i></p>
+                                        <p className="text-danger">Enviado <i className="fas fa-times"></i></p>
                                         <button className="btn btn-primary" disabled>
                                             <span className="spinner-border spinner-border-sm"></span>
                                             En proceso
