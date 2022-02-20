@@ -16,7 +16,7 @@ const UnitProduct = ({ item }) => {
 
             <div className="ps-product__content">
 
-                <Link to={`/product/`+item?.product?.slug}>{item?.product?.name}</Link>
+                <Link to={`/product/`+item?.product?.slug}>{item?.product?.name} <i className="fas fa-times"></i> {item?.quantity}</Link>
 
             </div>
 

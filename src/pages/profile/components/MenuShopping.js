@@ -25,9 +25,7 @@ const MenuShopping = () => {
 
                         <th>Proceso</th>
 
-                        <th>Precio</th>
-
-                        <th>Cantidad</th>
+                        <th>Total Compra</th>
 
                     </tr>
 
@@ -44,7 +42,7 @@ const MenuShopping = () => {
                             />)
                             :
                             <tr>
-                                <td colSpan={2}>
+                                <td colSpan={1}>
                                     <div className="spinner-border text-danger mx-auto" role="status">
                                         <span className="sr-only">Loading...</span>
                                     </div>

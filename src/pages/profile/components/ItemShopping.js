@@ -28,7 +28,7 @@ const ItemShopping = ({ order }) => {
                     </li>
 
                     <li className={order?.sent ? 'success' : 'process'}>
-                        {<h5>{order?.sent_date ? getDateFrom(order?.sent_date) : "Aún no se ha revisado"}</h5>}
+                        {<h5>{order?.sent_date ? getDateFrom(order?.sent_date) : "Aún no se ha enviado"}</h5>}
                         {
                             order?.reviewed
                                 ?
@@ -36,7 +36,13 @@ const ItemShopping = ({ order }) => {
                                     ?
                                     <p className="text-success">Enviado <i className="fas fa-check"></i></p>
                                     :
-                                    <p className="text-danger">Enviado <i className="fas fa-times"></i></p>
+                                    <>
+                                        <p className="text-danger">Entregado <i className="fas fa-times"></i></p>
+                                        <button className="btn btn-primary" disabled>
+                                            <span className="spinner-border spinner-border-sm"></span>
+                                            En proceso
+                                        </button>
+                                    </>
                                 :
                                 <button className="btn btn-primary" disabled>
                                     <span className="spinner-border spinner-border-sm"></span>
@@ -46,7 +52,7 @@ const ItemShopping = ({ order }) => {
                     </li>
 
                     <li className={order?.delivered ? 'success' : 'process'}>
-                        <h5>{order?.delivered_date ? getDateFrom(order?.delivered_date) : 'Aún no se ha realizado el envío'}</h5>
+                        <h5>{order?.delivered_date ? getDateFrom(order?.delivered_date) : 'Aún no se te ha entregado'}</h5>
                         {
                             order?.sent
                                 ?
@@ -74,8 +80,6 @@ const ItemShopping = ({ order }) => {
             </td>
 
             <td className="price text-center">$ {order?.total}</td>
-
-            <td className="text-center">2</td>
 
         </tr>
     );
